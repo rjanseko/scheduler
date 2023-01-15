@@ -3,9 +3,24 @@ version: '3.8'
 services:
   redis:
     image: redis:7-alpine
+    hostname: 'broker' 
     restart: always
     ports:
       - '6379:6379'
 
+  celery_beat:
+    build: . 
+    command: celery -A tasks beat -l INFO
+    depends_on:
+      - redis
+    links:
+      - redis
 
 
+  celery_worker:
+    build: .
+    command: celery -A tasks worker -l INFO
+    depends_on:
+      - redis
+    links:
+      - redis

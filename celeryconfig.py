@@ -9,10 +9,8 @@ beat_schedule = {
     }
 }
 
-beat_schedule_filename = '.celerybeat-schedule'
+broker_url = 'redis://broker:6379/0' 
+backend_url = 'redis://broker:6379/1'
 
-broker_url = 'redis://localhost:6379/0' 
-backend_url = 'redis://localhost:6379/1'
 
-enable_utc = True
-timezone = 'MST'
+

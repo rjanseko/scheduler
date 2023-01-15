@@ -6,14 +6,12 @@ app = Celery('tasks')
 app.config_from_object(celeryconfig)
 
 @app.task
-def collect_sensor_data():
-    return {'yo': 'man'}
+def read_sensor():
+    return 'sensor stuff'
 
 
 @app.task
-def get_snapshot():
+def read_camera():
     return 'camera picture'
-
-
 
 
