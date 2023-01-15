@@ -1,10 +1,9 @@
 from celery import Celery
-import config
+import celeryconfig
 
 
 app = Celery('tasks')
-app.config_from_object(config)
-
+app.config_from_object(celeryconfig)
 
 @app.task
 def collect_sensor_data():
