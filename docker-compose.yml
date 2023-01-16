@@ -16,7 +16,6 @@ services:
     links:
       - redis
 
-
   celery_worker:
     build: .
     command: celery -A tasks worker -E -l INFO
