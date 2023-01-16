@@ -19,7 +19,7 @@ services:
 
   celery_worker:
     build: .
-    command: celery -A tasks worker -l INFO
+    command: celery -A tasks worker -E -l INFO
     depends_on:
       - redis
     links:
